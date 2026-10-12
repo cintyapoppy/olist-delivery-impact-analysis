@@ -67,11 +67,12 @@ flowchart LR
     E --> F[Insight &<br/>rekomendasi]
 ```
 
-| Tahap | File |
-|---|---|
-| Membuat tabel bersih `orders_clean` | [`sql/01_orders_clean.sql`](sql/01_orders_clean.sql) |
-| Membuat tabel detail `order_detail` | [`sql/02_order_detail.sql`](sql/02_order_detail.sql) |
-| Query analisis untuk setiap pertanyaan | [`sql/03_analysis.sql`](sql/03_analysis.sql) |
+| Tahap | Isi | File |
+|---|---|---|
+| Cek tabel | Jumlah baris & tipe data setelah upload | [`sql/01_cek_tabel.sql`](sql/01_cek_tabel.sql) |
+| Data understanding | Profiling data & alasan setiap aturan cleaning | [`sql/02_data_understanding.sql`](sql/02_data_understanding.sql) |
+| Data cleaning & preparation | Membuat tabel `orders_clean` dan `order_detail` | [`sql/03_data_cleaning.sql`](sql/03_data_cleaning.sql) |
+| Analisis | Query untuk setiap pertanyaan bisnis + angka hasil | [`sql/04_analysis.sql`](sql/04_analysis.sql) |
 
 ### Aturan cleaning
 
@@ -163,9 +164,10 @@ Filter interaktif: **rentang tanggal** dan **state**.
 olist-delivery-impact-analysis/
 ├── README.md
 ├── sql/
-│   ├── 01_orders_clean.sql     # CREATE TABLE orders_clean (1 baris = 1 pesanan)
-│   ├── 02_order_detail.sql     # CREATE TABLE order_detail (pesanan x seller x kategori)
-│   └── 03_analysis.sql         # query analisis + angka hasil
+│   ├── 01_cek_tabel.sql            # validasi upload: jumlah baris & tipe data
+│   ├── 02_data_understanding.sql   # profiling data & alasan cleaning
+│   ├── 03_data_cleaning.sql        # CREATE TABLE orders_clean & order_detail
+│   └── 04_analysis.sql             # query analisis + angka hasil
 ├── images/
 │   ├── dashboard.png           # screenshot dashboard Data Studio
 │   └── bigquery_dataset.png    # tabel di BigQuery
